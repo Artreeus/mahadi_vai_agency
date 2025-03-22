@@ -1,14 +1,59 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Search } from 'lucide-react';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [animationClass, setAnimationClass] = useState('');
+  
+  // Handle opening and closing animations
+  const toggleMenu = () => {
+    if (!mobileMenuOpen) {
+      setMobileMenuOpen(true);
+      setAnimationClass('animate-slide-in');
+    } else {
+      setAnimationClass('animate-slide-out');
+      setTimeout(() => {
+        setMobileMenuOpen(false);
+      }, 300); // Match this with the animation duration
+    }
+  };
+
+  // Close mobile menu when window resizes to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        setAnimationClass('');
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mobileMenuOpen]);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [mobileMenuOpen]);
+  
+  // Function to close menu
+  const closeMenu = () => {
+    toggleMenu();
+  };
   
   return (
-    <div className="container px-4 py-3">
+    <div className="container mx-auto px-4 py-3 relative z-50">
       <div className="bg-white rounded-full shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
@@ -58,53 +103,81 @@ const Header = () => {
             <div className="md:hidden">
               <button
                 type="button"
-                className="text-gray-700"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 focus:outline-none"
+                onClick={toggleMenu}
                 aria-expanded={mobileMenuOpen}
               >
                 <span className="sr-only">Open menu</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                {mobileMenuOpen ? (
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
         </div>
-        
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+      </div>
+      
+      {/* Mobile menu - Full overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-white z-40 md:hidden flex flex-col">
+          {/* Mobile menu header with close button */}
+          <div className="border-b border-gray-100 py-4 px-6 flex items-center justify-between">
+            <div className="font-medium text-gray-800">Menu</div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="bg-gray-100 hover:bg-gray-200 transition-colors duration-300 p-2 rounded-full flex items-center justify-center"
+              aria-label="Close menu"
+            >
+              <svg className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <div className="container mx-auto px-6">
+            <nav className="flex flex-col space-y-6">
               <Link href="/about-us" legacyBehavior>
-                <a className="block px-3 py-2 text-gray-800 hover:text-lime-500 transition-colors duration-300 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                <a className="text-xl text-gray-800 hover:text-lime-500 transition-colors duration-300 font-medium" 
+                   onClick={() => setMobileMenuOpen(false)}>
                   About Us
                 </a>
               </Link>
               <Link href="/services" legacyBehavior>
-                <a className="block px-3 py-2 text-gray-800 hover:text-lime-500 transition-colors duration-300 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                <a className="text-xl text-gray-800 hover:text-lime-500 transition-colors duration-300 font-medium" 
+                   onClick={() => setMobileMenuOpen(false)}>
                   Services
                 </a>
               </Link>
               <Link href="/our-team" legacyBehavior>
-                <a className="block px-3 py-2 text-gray-800 hover:text-lime-500 transition-colors duration-300 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                <a className="text-xl text-gray-800 hover:text-lime-500 transition-colors duration-300 font-medium" 
+                   onClick={() => setMobileMenuOpen(false)}>
                   Our Team
                 </a>
               </Link>
-              <div className="flex items-center px-3 py-2">
+              
+              <div className="flex items-center py-2 border-t border-gray-100 mt-4 pt-6">
                 <Search className="h-5 w-5 text-gray-700" />
-                <span className="ml-1 text-gray-800 text-sm font-medium">Search</span>
+                <span className="ml-2 text-gray-800 text-lg font-medium">Search</span>
               </div>
-              <div className="px-3 py-2">
+              
+              <div className="pt-4">
                 <Link href="/contact-us" legacyBehavior>
-                  <a className="bg-lime-500 hover:bg-lime-600 text-black text-sm font-medium px-4 py-2 rounded-full inline-block transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5" onClick={() => setMobileMenuOpen(false)}>
+                  <a className="bg-lime-500 hover:bg-lime-600 text-black font-medium px-8 py-3 rounded-full inline-block transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5" 
+                     onClick={() => setMobileMenuOpen(false)}>
                     Contact Us
                   </a>
                 </Link>
               </div>
-            </div>
+            </nav>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

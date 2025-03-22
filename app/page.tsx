@@ -6,6 +6,8 @@ import CreativeWorks from "@/components/creative-works"
 import ConsultationForm from "@/components/consultation-form"
 import TrustedCompanies from "@/components/trusted-companies"
 import Header from "@/components/Header"
+import HeroCarousel from "@/components/HeroCarousel"
+import ServicesSection from './../components/ServiceSection';
 
 export default function Home() {
   return (
@@ -14,44 +16,7 @@ export default function Home() {
       <Header/>
 
       {/* Hero Section */}
-      <section className="relative bg-[#0a192f] py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent z-0"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="inline-block bg-lime-500 text-black text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                #1 AWARD-WINNING AGENCY WITH 10+ YEARS
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                From Sparks To
-                <br />
-                Spectacular
-              </h1>
-              <p className="text-gray-300 mb-8 max-w-lg">
-                Leading tech solutions provider with cutting-edge expertise in software development, AI integration, and
-                innovative digital solutions. Elevate your business with our specialized software solutions, providing
-                the tools necessary for success.
-              </p>
-              <div className="flex space-x-4">
-                <Button className="bg-lime-500 hover:bg-lime-600 text-black font-medium rounded-full">
-                  Get Started
-                </Button>
-              </div>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-[350px] h-[350px] rounded-full overflow-hidden">
-                <Image
-                  src="/placeholder.svg?height=350&width=350"
-                  alt="Team working together"
-                  width={350}
-                  height={350}
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel/>
 
       {/* Software Development Section */}
       <section className="py-20 bg-black">
@@ -132,49 +97,8 @@ export default function Home() {
       </section>
 
       {/* Technology Solutions Section */}
-      <section className="py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-right mb-6">
-            <div className="text-lime-500 text-sm font-semibold">OUR SERVICES</div>
-          </div>
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 grid grid-cols-2 gap-4 mb-10 md:mb-0">
-              <div className="bg-lime-500 p-6 rounded-lg flex flex-col items-center justify-center text-center">
-                <div className="text-black text-4xl mb-2">🚀</div>
-                <div className="text-black font-semibold">INNOVATION</div>
-              </div>
-              <div className="bg-lime-500 p-6 rounded-lg flex flex-col items-center justify-center text-center">
-                <div className="text-black text-4xl mb-2">⚙️</div>
-                <div className="text-black font-semibold">DEVELOPMENT</div>
-              </div>
-              <div className="bg-lime-500 p-6 rounded-lg flex flex-col items-center justify-center text-center">
-                <div className="text-black text-4xl mb-2">📱</div>
-                <div className="text-black font-semibold">MOBILE APPS</div>
-              </div>
-              <div className="bg-lime-500 p-6 rounded-lg flex flex-col items-center justify-center text-center">
-                <div className="text-black text-4xl mb-2">🖥️</div>
-                <div className="text-black font-semibold">WEB DEVELOPMENT</div>
-              </div>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-lime-500 mb-6">
-                Empowering Your
-                <br />
-                Business with
-                <br />
-                Technology Solutions
-              </h2>
-              <p className="text-gray-300 mb-8">
-                We offer a complete technology ecosystem that supports the development of your business. From concept to
-                execution, we provide the tools necessary for your success.
-              </p>
-              <Button className="bg-lime-500 hover:bg-lime-600 text-black font-medium rounded-full">
-                Discover More
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesSection/>
+    
 
       {/* Technology Stack Section */}
       <TechnologyStack />

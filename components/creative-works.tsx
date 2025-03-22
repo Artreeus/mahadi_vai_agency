@@ -9,29 +9,33 @@ const categories = ["All Work", "Website", "Mobile App", "UI/UX", "Branding"]
 const works = [
   {
     id: 1,
-    title: "Project 1",
+    title: "E-Commerce Platform",
     category: "Website",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    description: "Responsive e-commerce solution with integrated payment gateways and inventory management"
   },
   {
     id: 2,
-    title: "Project 2",
+    title: "Fitness Tracker App",
     category: "Mobile App",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    description: "Health monitoring application with workout plans and progress tracking features"
   },
   {
     id: 3,
-    title: "Project 3",
+    title: "Financial Dashboard",
     category: "UI/UX",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    description: "Data visualization interface designed for financial analysts with real-time updates" 
   },
   {
     id: 4,
-    title: "Project 4",
+    title: "Eco Products Rebrand",
     category: "Branding",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    description: "Complete brand identity refresh for a sustainable products company"
   },
-]
+];
 
 export default function CreativeWorks() {
   const [activeCategory, setActiveCategory] = useState("All Work")
