@@ -15,7 +15,7 @@ export default function Home() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <Image src="/placeholder.svg?height=50&width=150" alt="Spark TECH" width={150} height={50} />
+              <Image src="/wlogo.jpg" alt="Spark TECH" width={150} height={50} />
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
