@@ -9,8 +9,6 @@ const technologies = {
   aiDevelopment: [
     { name: "Python", icon: "🐍" },
     { name: "TensorFlow", icon: "⚙️" },
-    { name: "PyTorch", icon: "🔥" },
-    { name: "Keras", icon: "🧠" },
     { name: "OpenAI", icon: "🤖" },
   ],
   mobileAppDevelopment: [
@@ -18,7 +16,6 @@ const technologies = {
     { name: "React Native", icon: "⚛️" },
     { name: "Swift", icon: "🍎" },
     { name: "Kotlin", icon: "🤖" },
-    { name: "Ionic", icon: "⚡" },
   ],
   webDevelopment: [
     { name: "React", icon: "⚛️" },
@@ -29,12 +26,7 @@ const technologies = {
   ],
   qualityAssurance: [
     { name: "Selenium", icon: "🧪" },
-    { name: "Cypress", icon: "🔄" },
-    { name: "Jest", icon: "✅" },
     { name: "Postman", icon: "📬" },
-    { name: "JMeter", icon: "⚡" },
-    { name: "TestRail", icon: "🛤️" },
-    { name: "Appium", icon: "📱" },
   ],
 }
 

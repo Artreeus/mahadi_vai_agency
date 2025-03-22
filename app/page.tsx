@@ -1,48 +1,17 @@
 import Image from "next/image"
-import Link from "next/link"
-import { Phone } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import TechnologyStack from "@/components/technology-stack"
 import CreativeWorks from "@/components/creative-works"
 import ConsultationForm from "@/components/consultation-form"
 import TrustedCompanies from "@/components/trusted-companies"
+import Header from "@/components/Header"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="relative z-10 bg-black/90 py-3">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image src="/wlogo.jpg" alt="Spark TECH" width={150} height={50} />
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#" className="text-white hover:text-lime-400 transition-colors text-sm font-medium">
-              About Us
-            </Link>
-            <Link href="#" className="text-white hover:text-lime-400 transition-colors text-sm font-medium">
-              Services
-            </Link>
-            <Link href="#" className="text-white hover:text-lime-400 transition-colors text-sm font-medium">
-              Our Team
-            </Link>
-            <Link href="#" className="text-white hover:text-lime-400 transition-colors text-sm font-medium">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex items-center space-x-6">
-            <div className="hidden md:flex items-center">
-              <Phone className="h-4 w-4 mr-2 text-lime-500" />
-              <span className="text-sm text-white">+1 (123) 456-7890</span>
-            </div>
-            <Button className="bg-lime-500 hover:bg-lime-600 text-black font-medium rounded-full transition-colors">
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       {/* Hero Section */}
       <section className="relative bg-[#0a192f] py-20 overflow-hidden">
@@ -130,8 +99,8 @@ export default function Home() {
       {/* Traffic & Sales Section */}
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-2">
-            <div className="text-lime-500 text-sm font-semibold mb-2">WHAT MAKES US STAND APART?</div>
+          <div className="text-center mb-10 py-6">
+            <div className="text-lime-500 text-4xl font-semibold mb-2">WHAT MAKES US STAND APART?</div>
           </div>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
@@ -153,7 +122,7 @@ export default function Home() {
                   <div className="w-16 bg-red-500 h-[90%] rounded-t-md"></div>
                 </div>
                 <div className="absolute top-0 right-0 bg-black/80 rounded-full p-4 text-center">
-                  <div className="text-4xl font-bold">0+</div>
+                  <div className="text-4xl font-bold">3+</div>
                   <div className="text-xs text-gray-300">Years Of Experience</div>
                 </div>
               </div>
@@ -225,7 +194,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             <div>
               <Image
-                src="/placeholder.svg?height=50&width=150"
+                src="/wlogo.jpg"
                 alt="Spark TECH"
                 width={150}
                 height={50}
@@ -332,7 +301,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} Spark TECH. All rights reserved.
+            © {new Date().getFullYear()} Tech Specy. All rights reserved.
           </div>
         </div>
       </footer>
