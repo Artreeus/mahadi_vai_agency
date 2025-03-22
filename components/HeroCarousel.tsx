@@ -56,7 +56,7 @@ export default function HeroCarousel() {
   const activeSlide = slides[activeIndex];
 
   return (
-    <section className="relative bg-[#0a192f] overflow-hidden">
+    <section className="relative bg-[#0a192f] overflow-hidden ">
       {/* Static Content Section */}
       <div className="absolute inset-0 z-20 pointer-events-none">
         <div className="container mx-auto px-4 h-full">
